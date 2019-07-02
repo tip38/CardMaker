@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29020.237
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "CardMaker", "CardMaker.njsproj", "{1D782F32-1980-4FC5-9FC4-D05557D67BEC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D782F32-1980-4FC5-9FC4-D05557D67BEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D782F32-1980-4FC5-9FC4-D05557D67BEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D782F32-1980-4FC5-9FC4-D05557D67BEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D782F32-1980-4FC5-9FC4-D05557D67BEC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C42AAFC0-18B8-4077-BDBA-2F25CAF863B8}
+	EndGlobalSection
+EndGlobal
