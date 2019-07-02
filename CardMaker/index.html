@@ -1,89 +1,175 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>SCPO カードフォーマッタ</title>
-	<script src="index.js"></script>
-	<link rel="stylesheet" type="text/css" href="index.css">
+    <meta charset="UTF-8">
+    <title>SCPO カードフォーマッタ</title>
+    <script src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
-	<div class="Form All">
-		<p>カード名</p>
-		<input name="name" type="text" autocomplete="off" />
-		<br />
-	</div>
+    <div class="Form All">
+        <p>カード名</p>
+        <input name="name" type="text" autocomplete="off" />
+        <br />
+    </div>
 
-	<div class="Form All">
-		<p>カードのカテゴリ</p>
-		<form name="catForm">
-			<select name="category" onChange="selectCategory()">
-				<option value="SCP">SCP</option>
-				<option value="Anomalous">Anomalous</option>
-				<option value="Personnel">Personnel</option>
-				<option value="Tale">Tale</option>
-				<option value="Incident">Incident</option>
-				<option value="Canon">Canon</option>
-			</select>
-		</form>
-	</div>
+    <div class="Form All">
+        <p>カードのカテゴリ</p>
+        <form name="catForm">
+            <select name="category" onChange="selectCategory()">
+                <option value="SCP">SCP</option>
+                <option value="Anomalous">Anomalous</option>
+                <option value="Personnel">Personnel</option>
+                <option value="Tale">Tale</option>
+                <option value="Incident">Incident</option>
+                <option value="Canon">Canon</option>
+            </select>
+        </form>
+        <br />
+    </div>
 
-	<div class="Form SCP">
-		<p style="display:inline-block">コスト：<input name="cost" type="number" min="0" value="0" required /></p>
-		<br />
-	</div>
+    <div class="Form SCP">
+        <p style="display:inline-block">コスト：<input name="cost" type="number" min="0" value="0" required /></p>
+        <br />
+    </div>
 
-	<div class="Form SCP Anomalous">
-		<p style="display:inline-block">確保力：<input name="secure" type="number" min="0" value="0" required /></p>
-		<br />
-	</div>
+    <div class="Form SCP Anomalous">
+        <p style="display:inline-block">確保力：<input name="secure" type="number" min="0" value="0" required /></p>
+        <br />
+    </div>
 
-	<div class="Form SCP">
-		<p>クラス</p>
-		<form name="class">
-			<select name="category" onChange="selectClass()">
-				<option value="Safe">Safe</option>
-				<option value="Euclid">Euclid</option>
-				<option value="Keter">Keter</option>
-				<option value="Unclassed">Unclassed</option>
-				<option value="Thaumiel">Thaumiel</option>
-				<option value="Explained">Explained</option>
-				<option value="Neutralized">Neutralized</option>
-			</select>
-		</form>
-	</div>
+    <div class="Form SCP">
+        <p>クラス</p>
+        <form name="class">
+            <select name="category" onChange="selectClass()">
+                <option value="Safe">Safe</option>
+                <option value="Euclid">Euclid</option>
+                <option value="Keter">Keter</option>
+                <option value="Unclassed">Unclassed</option>
+                <option value="Thaumiel">Thaumiel</option>
+                <option value="Explained">Explained</option>
+                <option value="Neutralized">Neutralized</option>
+            </select>
+        </form>
+        <br />
+    </div>
 
-	<div class="Form ContainmentClass" id="ContainmentClass">
-		<p>収容クラス</p>
-		<form name="">
-			<select name="" onChange="">
-				<option value="Safe">Safe</option>
-				<option value="Euclid">Euclid</option>
-				<option value="Keter">Keter</option>
-			</select>
-		</form>
-	</div>
+    <div class="Form ContainmentClass" id="ContainmentClass">
+        <p>収容クラス</p>
+        <form name="">
+            <select name="" onChange="">
+                <option value="Safe">Safe</option>
+                <option value="Euclid">Euclid</option>
+                <option value="Keter">Keter</option>
+            </select>
+        </form>
+        <br />
+    </div>
 
-	<div class="Form All">
-		<p style="display:inline-block"><input name="immortal" type="checkbox" />破壊不能</p>
-	</div>
+    <div class="Form All">
+        <input id="immortal" type="checkbox" />
+        <label for="immortal">破壊不能</label>
+    </div>
 
-	<div class="Form All">
-		<p>タグ</p>
+    <div class="Form All">
+        <p>タグ</p>
 
-		<div id="TagList">
-			<div id="Tag1">
-				<p style="display:inline-block">1.</p>
-				<input name="tag" type="text" autocomplete="off" />
-				<br />
-			</div>
-		</div>
+        <div id="TagList">
+            <div id="Tag1">
+                <div style="display:inline-block">1.</div>
+                <input name="tag" type="text" autocomplete="off" />
+                <br />
+                <br />
+            </div>
+        </div>
 
-		<button onclick="addTag()">＋</button><button onclick="removeTag()">－</button>
-		<br />
-	</div>
+        <button onclick="add('Tag')">＋</button>
+        <button onclick="remove('Tag')">－</button>
+        <br />
+    </div>
 
-	<script>
-		selectCategory();
-	</script>
+    <div class="Form All">
+        <p>効果</p>
+
+        <div class="Frame">
+            <div id="TriggerList" class="list">
+                <div id="Trigger1">
+                    <div>タイミング</div>
+                    <select name="Trigger" onChange="test('ok')">
+                        <option value="CrossTest">クロステスト時</option>
+                        <option value="Sometime">起動</option>
+                        <option value="Decommissioned">破壊時</option>
+                        <option value="Breached">収容違反時</option>
+                        <option value="TurnStart">ターン開始時</option>
+                        <option value="TurnEnd">ターン終了時</option>
+                    </select>
+
+                    <div class="Frame">
+                        <div id="EffectList">
+                            <div id="Effect1">
+                                <div style="display:inline-block">1.</div>
+
+                                <div class="Frame">
+                                    <div id="ConditionList">条件
+                                        <div id="Condition1">
+                                            <div style="display:inline-block">1.</div>
+                                            <select name="Condition" onChange="">
+                                                <option value="NonPartner">パートナーでない</option>
+                                                <option value="HasPersonnel">人事ファイルが存在する</option>
+                                                <option value="HasSCP">サイトにSCPがある</option>
+                                                <option value="FirstTimeInTurn">ターンで初めて</option>
+                                                <option value="MyTurn">自分のターン</option>
+                                                <option value="SecureIsZero">確保力がゼロ</option>
+                                                <option value="SecureNonZero">確保力がゼロでない</option>
+                                            </select>
+                                            <br />
+                                        </div>
+                                    </div>
+                                    <button onclick="add('Condition')">＋</button>
+                                    <button onclick="remove('Condition')">－</button>
+                                </div>
+                                <br />
+
+                                <div class="Frame">
+                                    <div id="ActionList">アクション
+                                        <div id="Action1" class="Margin">
+                                            <div style="display:inline-block">1.</div>
+                                            <select name="Action" onChange="">
+                                                <option value="Decommission">破壊する</option>
+                                                <option value="Select">選択する(サイト・サンドボックス)</option>
+                                                <option value="AddTag">タグ追加</option>
+                                                <option value="AddEffect">効果追加</option>
+                                                <option value="K_Class">Kクラスシナリオの発生</option>
+                                                <option value="Breach">収容違反</option>
+                                                <option value="ReContainment">再収容</option>
+                                                <option value="DamageSandBox">サンドボックスにダメージ</option>
+                                                <option value="HealSandBox">サンドボックスを回復</option>
+                                                <option value="MinusSecure">確保力を減少</option>
+                                                <option value="Optional">発動するか確認する</option>
+                                            </select>
+                                            <br />
+                                        </div>
+                                    </div>
+                                    <button onclick="add('Action')">＋</button>
+                                    <button onclick="remove('Action')">－</button>
+                                </div>
+                                <br />
+                            </div>
+                        </div>
+                        <button onclick="add('Effect')">＋</button>
+                        <button onclick="remove('Effect')">－</button>
+                    </div>
+                    <br />
+                </div>
+            </div>
+
+            <button onclick="add('Trigger')">＋</button>
+            <button onclick="remove('Trigger')">－</button>
+        </div>
+    </div>
+
+    <script>
+        selectCategory();
+    </script>
 </body>
 </html>

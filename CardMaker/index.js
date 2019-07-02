@@ -36,14 +36,19 @@ function selectClass() {
 	}
 }
 
-function addTag() {
-	var tagList = document.getElementById("TagList");
-	var clone = tagList.firstElementChild.cloneNode(true);
-	tagList.appendChild(clone);
-	clone.firstElementChild.innerHTML = tagList.childElementCount + ".";
-	clone.id = "Tag" + tagList.childElementCount;
+function add(type) {
+	var list = document.getElementById(type + "List");
+	var clone = list.firstElementChild.cloneNode(true);
+	list.appendChild(clone);
+	clone.firstElementChild.innerHTML = "  " + list.childElementCount + ".";
+	clone.id = type + list.childElementCount;
 }
 
-function removeTag() {
+function remove(type) { 
+    var list = document.getElementById(type + "List");
+    if (list.childElementCount > 1) list.removeChild(list.lastElementChild);
+}
 
+function test(text){
+    console.log(text);
 }
