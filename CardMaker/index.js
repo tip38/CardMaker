@@ -42,7 +42,11 @@ function init() {
 		"Condition": document.getElementById("ConditionList").cloneNode(true),
 		"Action": document.getElementById("ActionList").cloneNode(true),
 		"Effect": document.getElementById("EffectList").cloneNode(true),
-		"Trigger": document.getElementById("TriggerList").cloneNode(true)
+		"Trigger": document.getElementById("TriggerList").cloneNode(true),
+		"DetailCondition": document.getElementById("DetailConditionList").cloneNode(true),
+		"ActionCondition": document.getElementById("ActionConditionList").cloneNode(true),
+		"SubTag": document.getElementById("SubTagList").cloneNode(true),
+		"SubEffect": document.getElementById("SubEffectList").cloneNode(true)
 	};
 
 	list = {
@@ -57,7 +61,12 @@ function init() {
 }
 
 function add(type) {
-	var clone = defaultList[type].firstElementChild.cloneNode(true);
+	var clone;
+	if (type !== "SubEffect")
+		clone = defaultList[type].firstElementChild.cloneNode(true);
+	else 
+		clone = defaultList["Trigger"].firstElementChild.cloneNode(true);
+
 	event.currentTarget.parentNode.firstElementChild.appendChild(clone);
 	clone.firstElementChild.innerHTML = event.currentTarget.parentNode.firstElementChild.childElementCount + ".";
 	clone.id = type + event.currentTarget.parentNode.firstElementChild.childElementCount;

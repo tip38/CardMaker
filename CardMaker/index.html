@@ -142,16 +142,18 @@
 											</div>
 
 											<div class="Form HasSCP">
-												<div class="Frame">
-													<div style="display:inline-block">：</div>
+												<div class="Frame">Condition：
 
-													<div>
-														<input name="" type="text" autocomplete="off" />
-														<br />
-														<input name="" type="number" min="0" value="0" />
+													<div id="DetailConditionList">
+														<div id="DetailCondition1" class="Frame">
+															<div>1.</div>
+															<input name="" type="text" autocomplete="off" />
+															<br />
+															<input name="" type="number" min="0" value="0" />
+														</div>
 													</div>
-													<button onclick="add('Condition')">＋</button>
-													<button onclick="remove('Condition')">－</button>
+													<button onclick="add('DetailCondition')">＋</button>
+													<button onclick="remove('DetailCondition')">－</button>
 												</div>
 											</div>
 
@@ -195,7 +197,7 @@
 												<br />
 											</div>
 
-											<div name="TargetZone" class="Form Decommission Select">
+											<div name="TargetZone" class="Form Select">
 												<div style="display:inline-block">対象ゾーン：</div>
 												<select name="TargetZone" id="" onChange="">
 													<option value="NonSelect">(選択なし)</option>
@@ -214,13 +216,15 @@
 												<div class="Frame">
 													<div style="display:inline-block">Condition：</div>
 
-													<div>
-														<input name="" type="text" autocomplete="off" />
-														<br />
-														<input name="" type="number" min="0" value="0" />
+													<div id="ActionConditionList">
+														<div id="DetailCondition1">
+															<input name="" type="text" autocomplete="off" />
+															<br />
+															<input name="" type="number" min="0" value="0" />
+														</div>
 													</div>
-													<button onclick="add('Condition')">＋</button>
-													<button onclick="remove('Condition')">－</button>
+													<button onclick="add('ActionCondition')">＋</button>
+													<button onclick="remove('ActionCondition')">－</button>
 												</div>
 											</div>
 
@@ -251,9 +255,14 @@
 											<div Name="SubTag" class="Form AddTag">
 												<div class="Frame">
 													<div style="display:inline-block">SubTag：</div>
-													<input name="" type="text" autocomplete="off" />
-													<button onclick="add('Condition')">＋</button>
-													<button onclick="remove('Condition')">－</button>
+													<div id="SubTagList">
+														<div id="SubTag1">
+															<input name="" type="text" autocomplete="off" />
+															<br />
+														</div>
+													</div>
+													<button onclick="add('SubTag')">＋</button>
+													<button onclick="remove('SubTag')">－</button>
 												</div>
 											</div>
 
@@ -269,6 +278,7 @@
 													<option value="SecureIsZero">確保力がゼロ</option>
 													<option value="SecureNonZero">確保力がゼロでない</option>
 												</select>
+												<br />
 											</div>
 
 											<div Name="TargetClass" class="Form ReContainment">
@@ -291,6 +301,17 @@
 													<option value="Number">Number</option>
 												</select>
 											</div>
+
+											<div Name="SubEffect" class="Form AddEffect">
+												<div class="Frame">
+													<div id="SubEffectList">
+														追加する効果：
+													</div>
+													<button onclick="add('SubEffect')">＋</button>
+													<button onclick="remove('SubEffect')">－</button>
+												</div>
+											</div>
+
 										</div>
 									</div>
 									<button onclick="add('Action')">＋</button>
@@ -312,8 +333,8 @@
 	</div>
 
 	<script>
-		selectCategory();
-		init();
+	selectCategory();
+	init();
 	</script>
 </body>
 </html>
